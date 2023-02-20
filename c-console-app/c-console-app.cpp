@@ -19,8 +19,7 @@ void reverse(int *arrPtr, const int len)
 {
     int i = (len - 1);
     int* lastValPtr = (arrPtr + i);
-    int lenAvg = len / 2;
-    for (; i >= lenAvg; i--)
+    for (; i >= (len / 2); i--)
     {
         int tempVal = *arrPtr;
         *arrPtr = *lastValPtr;
@@ -35,6 +34,7 @@ void reverse(int *arrPtr, const int len)
 int main()
 {
     int testArray[] = { 27, 54, 245, 77, 123, 36};
+
     const int len = *(&testArray + 1) - testArray;
 
     reverse(testArray, len);
