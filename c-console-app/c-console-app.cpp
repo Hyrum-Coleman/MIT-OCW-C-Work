@@ -2,20 +2,29 @@
 //
 
 #include <iostream>
-#include "computePi.h"
 using namespace std;
 
-
+void printArray(int arrayToPrint[], int len)
+{
+    for (int i = 0; i < len; i++)
+    {
+        if (i + 1 == len)
+        {
+            cout << arrayToPrint[i];
+            continue;
+        }
+        cout << arrayToPrint[i] << ", ";
+    }
+    
+}
 
 
 int main()
 {
-    unsigned long numThrows;
-    cin >> numThrows;
+    int arrayToPrint[] = { 1, 45, 2, 5, 3, 24, 267, 73, 69 };
+    int len = *(&arrayToPrint + 1) - arrayToPrint;
 
-    double piApprox = computePi(numThrows);
-
-    cout << piApprox;
+    printArray(arrayToPrint, len);
 
     return 0;
 }
