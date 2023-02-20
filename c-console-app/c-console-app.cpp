@@ -5,22 +5,13 @@
 #include <cstdlib>
 using namespace std;
 
-int sum(int x, int y) { return x + y; }
-int sum(int x, int y, int z) { return x + y + z; }
-int sum(int x, int y, int z, int g) { return x + y + z + g; }
+int sum(int x, int y, int z = 1, int g = 4) { return x + y + z + g; }
 
-double sum(double x, double y){ return x + y; }
+
 
 int main()
 {
-    int firstInt = 25;
-    int secondInt = 42;
-
-    double firstDouble = 2.25;
-    double secondDouble = 4.66;
-
-    cout << sum(firstInt, secondInt) << '\n';
-    cout << sum(firstDouble, secondDouble) << '\n';
+    cout << sum(4, 2, 3) << '\n';
 
     return 0;
 }
