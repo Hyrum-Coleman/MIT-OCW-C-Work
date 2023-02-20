@@ -141,11 +141,13 @@
   <ItemGroup>
     <ClCompile Include="c-console-app.cpp" />
     <ClCompile Include="factorialGoneWrong.cpp" />
+    <ClCompile Include="sumFunction.cpp" />
     <ClCompile Include="statGen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="factorialGoneWrong.h" />
     <ClInclude Include="statGen.h" />
+    <ClInclude Include="sumFunction.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
