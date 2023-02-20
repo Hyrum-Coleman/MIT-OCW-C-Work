@@ -2,27 +2,50 @@
 //
 
 #include <iostream>
+#include <random>
+#include <cmath>
 using namespace std;
 
-int sumValue = 0;
-
-int sum(int *sumPtr, int sumLen)
+bool checkDistance(double x, double y)
 {
-    if (sumLen == 0) { return sumValue; }
-    sumValue += *sumPtr;
-    sumPtr++;
-    sum(sumPtr, sumLen-1);
+    if (sqrt(pow(x, 2) + pow(y, 2)) > 1)
+    {
+        return false;
+    }
+    return true;
 }
 
+double computePi(unsigned long numThrows)
+{
+    int min = 0;
+    int max = 1;
+    int dartsIn = 0;
+    default_random_engine rnd{ random_device{}() };
+    uniform_real_distribution<double> dist(min, max);
+
+    for (unsigned long i = 0; i < numThrows; i++)
+    {
+        double x = dist(rnd);
+        double y = dist(rnd);
+        if (checkDistance(x, y))
+        {
+            dartsIn++;
+        }
+    }
+
+    double piApprox = (4.0 * (double)dartsIn) / (double)numThrows;
+    return piApprox;
+}
 
 
 int main()
 {
-    int sumArray[] = { 7, 5, 4, 20 };
-    int sumLen = 4;
-    int* sumPtr = sumArray;
+    unsigned long numThrows;
+    cin >> numThrows;
 
-    cout << sum(sumPtr, sumLen) << '\n';
+    double piApprox = computePi(numThrows);
+
+    cout << piApprox;
 
     return 0;
 }
