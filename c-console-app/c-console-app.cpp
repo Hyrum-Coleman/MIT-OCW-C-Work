@@ -1,9 +1,4 @@
-// c-console-app.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
-#include <cstring>
-#include "sumFunction.h"
 using namespace std;
 
 void printArray(int arrayToPrint[], int len)
@@ -40,10 +35,9 @@ void reverse(int *arrPtr, const int len)
 int main()
 {
     int testArray[] = { 27, 54, 245, 77, 123, 36};
-    int *arrPtr = testArray;
     const int len = *(&testArray + 1) - testArray;
 
-    reverse(arrPtr, len);
+    reverse(testArray, len);
     printArray(testArray, len);
 
     return 0;
