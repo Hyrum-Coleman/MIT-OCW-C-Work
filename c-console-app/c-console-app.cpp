@@ -5,14 +5,26 @@
 #include <cstdlib>
 using namespace std;
 
-const int ARRAY_LEN = 10;
+int sum(int x, int y)
+{
+    return x + y;
+}
+double sum(double x, double y)
+{
+    return x + y;
+}
 
 int main()
 {
-    int arr[ARRAY_LEN] = { 10 };
+    int firstInt = 25;
+    int secondInt = 42;
 
-    int *xPtr = arr, *yPtr = arr + ARRAY_LEN - 1;
-    cout << *xPtr << ' ' << *yPtr;
+    double firstDouble = 2.25;
+    double secondDouble = 4.66;
+
+    cout << sum(firstInt, secondInt) << '\n';
+    cout << sum(firstDouble, secondDouble) << '\n';
+
     return 0;
 }
 
