@@ -4,23 +4,25 @@
 #include <iostream>
 using namespace std;
 
-int sum(int sumArray[], int sumLen)
+int sumValue = 0;
+
+int sum(int *sumPtr, int sumLen)
 {
-    int sum = 0;
-    for (int i = 0; i < sumLen; i++) 
-    {
-        sum += sumArray[i];
-    }
-    return sum;
+    if (sumLen == 0) { return sumValue; }
+    sumValue += *sumPtr;
+    sumPtr++;
+    sum(sumPtr, sumLen-1);
 }
 
 
 
 int main()
 {
-    int sumArray[] = { 1, 2, 4 };
-    int sumLen = 3;
-    cout << sum(sumArray, sumLen) << '\n';
+    int sumArray[] = { 7, 5, 4, 20 };
+    int sumLen = 4;
+    int* sumPtr = sumArray;
+
+    cout << sum(sumPtr, sumLen) << '\n';
 
     return 0;
 }
