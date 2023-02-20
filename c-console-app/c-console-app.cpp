@@ -2,17 +2,25 @@
 //
 
 #include <iostream>
-#include <cstdlib>
 using namespace std;
 
-int sum(int x, int y, int z = 1, int g = 4) { return x + y + z + g; }
+int sum(int sumArray[], int sumLen)
+{
+    int sum = 0;
+    for (int i = 0; i < sumLen; i++) 
+    {
+        sum += sumArray[i];
+    }
+    return sum;
+}
 
 
 
 int main()
 {
-    cout << sum(4, 2, 3) << '\n';
+    int sumArray[] = { 1, 2, 4 };
+    int sumLen = 3;
+    cout << sum(sumArray, sumLen) << '\n';
 
     return 0;
 }
-
