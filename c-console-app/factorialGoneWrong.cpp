@@ -10,7 +10,7 @@ void factorialCode()
 	cout << "The factorial of " << number << " is ";
 	if (number < 0)
 	{
-		cout << "Apparently we don't allow negative values for our factorials";
+		cout << "apparently we don't allow negative values for our factorials";
 	}
 	else
 	{
