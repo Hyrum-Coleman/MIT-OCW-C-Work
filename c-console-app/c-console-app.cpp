@@ -5,13 +5,14 @@
 #include <cstdlib>
 using namespace std;
 
-int sum(const int x, const int y, const int z) {
-    return x + y + z;
-}
+const int ARRAY_LEN = 10;
 
 int main()
 {
-    cout << sum(1, 2, 3);
+    int arr[ARRAY_LEN] = { 10 };
+
+    int *xPtr = arr, *yPtr = arr + ARRAY_LEN - 1;
+    cout << *xPtr << ' ' << *yPtr;
     return 0;
 }
 
