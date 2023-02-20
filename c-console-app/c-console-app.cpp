@@ -5,14 +5,11 @@
 #include <cstdlib>
 using namespace std;
 
-int sum(int x, int y)
-{
-    return x + y;
-}
-double sum(double x, double y)
-{
-    return x + y;
-}
+int sum(int x, int y) { return x + y; }
+int sum(int x, int y, int z) { return x + y + z; }
+int sum(int x, int y, int z, int g) { return x + y + z + g; }
+
+double sum(double x, double y){ return x + y; }
 
 int main()
 {
