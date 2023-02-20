@@ -5,13 +5,13 @@
 #include <cstdlib>
 using namespace std;
 
-int difference(const int x, const int y) {
-    return abs(x - y);
+int sum(const int x, const int y, const int z) {
+    return x + y + z;
 }
 
 int main()
 {
-    cout << difference(24, 1238);
+    cout << sum(1, 2, 3);
     return 0;
 }
 
