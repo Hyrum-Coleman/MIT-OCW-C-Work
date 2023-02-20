@@ -140,11 +140,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="c-console-app.cpp" />
+    <ClCompile Include="computePi.cpp" />
     <ClCompile Include="factorialGoneWrong.cpp" />
     <ClCompile Include="sumFunction.cpp" />
     <ClCompile Include="statGen.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="computePi.h" />
     <ClInclude Include="factorialGoneWrong.h" />
     <ClInclude Include="statGen.h" />
     <ClInclude Include="sumFunction.h" />

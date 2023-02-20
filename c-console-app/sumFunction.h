@@ -1,3 +1,3 @@
 #pragma once
 
-int sum();
+int sum(int* arrPtr, int len);
