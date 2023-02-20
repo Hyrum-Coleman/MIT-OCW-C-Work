@@ -2,18 +2,16 @@
 //
 
 #include <iostream>
+#include <cstdlib>
 using namespace std;
 
-void doubleNumber(int *numPtr)
-{
-    *numPtr = *numPtr * 2;
+int difference(const int x, const int y) {
+    return abs(x - y);
 }
 
 int main()
 {
-    int num = 35;
-    doubleNumber(&num);
-    cout << num;
+    cout << difference(24, 1238);
     return 0;
 }
 
