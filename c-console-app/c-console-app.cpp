@@ -2,6 +2,8 @@
 //
 
 #include <iostream>
+#include <cstring>
+#include "sumFunction.h"
 using namespace std;
 
 void printArray(int arrayToPrint[], int len)
@@ -18,13 +20,31 @@ void printArray(int arrayToPrint[], int len)
     
 }
 
+void reverse(int *arrPtr, const int len)
+{
+    int i = (len - 1);
+    int* lastValPtr = (arrPtr + i);
+    int lenAvg = len / 2;
+    for (; i >= lenAvg; i--)
+    {
+        int tempVal = *arrPtr;
+        *arrPtr = *lastValPtr;
+        *lastValPtr = tempVal;
+
+        arrPtr++;
+        lastValPtr--;
+    }
+}
+
 
 int main()
 {
-    int arrayToPrint[] = { 1, 45, 2, 5, 3, 24, 267, 73, 69 };
-    int len = *(&arrayToPrint + 1) - arrayToPrint;
+    int testArray[] = { 27, 54, 245, 77, 123, 36};
+    int *arrPtr = testArray;
+    const int len = *(&testArray + 1) - testArray;
 
-    printArray(arrayToPrint, len);
+    reverse(arrPtr, len);
+    printArray(testArray, len);
 
     return 0;
 }
