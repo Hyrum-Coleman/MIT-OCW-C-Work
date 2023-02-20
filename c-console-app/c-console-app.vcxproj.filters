@@ -18,5 +18,19 @@
     <ClCompile Include="c-console-app.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="statGen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="factorialGoneWrong.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="statGen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="factorialGoneWrong.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
