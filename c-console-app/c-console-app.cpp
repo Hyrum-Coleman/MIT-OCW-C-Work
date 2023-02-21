@@ -52,6 +52,8 @@ int main()
     int len = *(&testArray + 1) - testArray;
 
     reverse(testArray, len);
+    reverse(testArray, len);
+    reverse(testArray, len);
     printArray(testArray, len);
 
     const int input[WIDTH][LENGTH] = { {2, 0, 1} , {4, 5, 9 } , { 6, 8, 3 } };
