@@ -1,5 +1,5 @@
 #include <iostream>
-#define LENGTH 2
+#define LENGTH 3
 #define WIDTH 3
 using namespace std;
 
@@ -47,14 +47,14 @@ void transpose(const int input[WIDTH][LENGTH], int output[LENGTH][WIDTH])
 
 int main()
 {
-    int testArray[] = { 27, 54, 245, 77, 123, 36};
+    int testArray[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
     int len = *(&testArray + 1) - testArray;
 
     reverse(testArray, len);
     printArray(testArray, len);
 
-    const int input[WIDTH][LENGTH] = { {2, 0} , {4, 5 } , { 6, 8 } };
+    const int input[WIDTH][LENGTH] = { {2, 0, 1} , {4, 5, 9 } , { 6, 8, 3 } };
     int output[LENGTH][WIDTH];
 
     transpose(input, output);
@@ -67,7 +67,7 @@ int main()
             cout << output[i][j] << ", ";
         }
     }
-    
+    cout << '\n';
 
     return 0;
 }
