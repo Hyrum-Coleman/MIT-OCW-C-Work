@@ -59,14 +59,15 @@ int main()
 
     transpose(input, output);
 
-    for (int i = 0; i < LENGTH; i++)
+    for (auto & i : output)
     {
         cout << '\n';
-        for (int j = 0; j < WIDTH; j++)
+        for (int j : i)
         {
-            cout << output[i][j] << ", ";
+            cout << j << ", ";
         }
     }
+    cout << '\b' << '\b';
     cout << '\n';
 
     return 0;
