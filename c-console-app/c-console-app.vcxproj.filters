@@ -13,36 +13,54 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\NewFilter1">
+      <UniqueIdentifier>{adf7cce1-8277-44df-a1cc-c284e32ef4b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\NewFilter1">
+      <UniqueIdentifier>{bf7a2678-4fd4-4627-82d2-aaa56cf84b6f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="c-console-app.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="statGen.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="factorialGoneWrong.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sumFunction.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="arrayOperations.cpp">
+      <Filter>Source Files\NewFilter1</Filter>
     </ClCompile>
     <ClCompile Include="computePi.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="factorialGoneWrong.cpp">
+      <Filter>Source Files\NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="sumFunction.cpp">
+      <Filter>Source Files\NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="HW7.cpp">
+      <Filter>Source Files\NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="statGen.cpp">
+      <Filter>Source Files\NewFilter1</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="statGen.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\NewFilter1</Filter>
     </ClInclude>
-    <ClInclude Include="factorialGoneWrong.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="sumFunction.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="arrayOperations.h">
+      <Filter>Header Files\NewFilter1</Filter>
     </ClInclude>
     <ClInclude Include="computePi.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\NewFilter1</Filter>
+    </ClInclude>
+    <ClInclude Include="factorialGoneWrong.h">
+      <Filter>Header Files\NewFilter1</Filter>
+    </ClInclude>
+    <ClInclude Include="HW7.h">
+      <Filter>Header Files\NewFilter1</Filter>
+    </ClInclude>
+    <ClInclude Include="sumFunction.h">
+      <Filter>Header Files\NewFilter1</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

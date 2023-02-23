@@ -19,26 +19,30 @@ void swapByReference(int &x, int &y) // 7.2
     y = tempVar;
 }
 
-void swapByPointer(int *x, int *y) // 7.3
+void swapByPointer(int * const x, int * const y) // 7.3
 {
     int tempVar = *x;
     *x = *y;
     *y = tempVar;
-
 }
 
-void swapPointers(int** ptr1, int** ptr2) // 7.4
+void swapPointers(int **ptr1, int** ptr2) // 7.4
 {
     int* temp = *ptr1;
     *ptr1 = *ptr2;
     *ptr2 = temp;
 }
 
+int findLength(char const* ptr)
+{
+    char const* hold = ptr;
+    while (*hold++);
+    return hold - ptr;
+}
 
 int runHW1_7()
 {
-    char const *ptr;
-    ptr = "We ball!";
+    char const *ptr = "We ball!";
     int len = returnStringLength(ptr);
     cout << len << "\n";
 
@@ -65,11 +69,11 @@ int runHW1_7()
     // 7.4 done
 
     char const *oddOrEven = "Never odd or even";
-    char const *NthCharPtr = &oddOrEven[5];
+    char const *NthCharPtr = oddOrEven + 5;
     NthCharPtr -= 2;
     cout << *NthCharPtr << '\n';
     char const **pointerPtr = &NthCharPtr;
-    cout << pointerPtr << '\n';
+    cout << *pointerPtr << '\n';
     cout << **pointerPtr << '\n';
     NthCharPtr++;
     cout << (NthCharPtr - oddOrEven) << '\n';
