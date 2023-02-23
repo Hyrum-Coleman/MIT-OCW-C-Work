@@ -69,7 +69,7 @@ int main()
             cout << j << ", ";
         }
     }
-    cout << '\b' << '\b';
+    cout << "\b \b \b \b \b";
     cout << '\n';
 
     return 0;
