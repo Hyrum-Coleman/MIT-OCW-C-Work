@@ -140,7 +140,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="arrayOperations.cpp" />
-    <ClCompile Include="c-console-app.cpp" />
+    <ClCompile Include="geometry.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="computePi.cpp" />
     <ClCompile Include="factorialGoneWrong.cpp" />
     <ClCompile Include="HW7.cpp" />
@@ -151,6 +152,7 @@
     <ClInclude Include="arrayOperations.h" />
     <ClInclude Include="computePi.h" />
     <ClInclude Include="factorialGoneWrong.h" />
+    <ClInclude Include="geometry.h" />
     <ClInclude Include="HW7.h" />
     <ClInclude Include="statGen.h" />
     <ClInclude Include="sumFunction.h" />

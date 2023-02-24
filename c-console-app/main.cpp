@@ -1,8 +1,16 @@
 #include <iostream>
-#include "HW7.h"
+#include "geometry.h"
+
+using namespace std;
+
 
 int main()
 {
-    int gaming = runHW1_7();
+    Point *p = new Point(2, 5);
+    cout << "(" << p->getX() << ", " << p->getY() << ")\n";
+    p->setX(56);
+    cout << "(" << p->getX() << ", " << p->getY() << ")\n";
+
+    delete p;
     return 0;
 }
