@@ -11,6 +11,8 @@ int main()
     p->setX(56);
     cout << "(" << p->getX() << ", " << p->getY() << ")\n";
 
+    auto* pointArray = new PointArray(p);
+
     delete p;
     return 0;
 }

@@ -13,17 +13,20 @@ public:
 
 class PointArray
 {
-private:
-	int mLen;
-	Point *mPtr;
-
 public:
 	PointArray();
-	PointArray(Point points[], int size)
-    {
-        this->mPtr = new Point[size];
-        mPtr = points;
-        this->mLen = size;
+	PointArray(Point points[], int size);
+	PointArray(const PointArray& pv);
+	PointArray(Point *point);
+	PointArray(Point point);
+	~PointArray();
 
-    }
+private:
+	int mLen;
+	Point* mPtr;
+	static const int cBlockSize = 100;
+
+private:
+	void initialize(Point points[], int size);
+	void resize(int n);
 };
