@@ -4,7 +4,7 @@ class Point
 private:
 	int mX, mY;
 public:
-	Point(int x=0, int y=0) { this->mX = x; this->mY = y; }
+	Point(int x=0, int y=0) { mX = x; mY = y; }
 	int getX() const { return mX; }
 	int getY() const { return mY; }
 	void setX(const int new_x) { mX = new_x; }
@@ -21,6 +21,11 @@ public:
 	PointArray(Point point);
 	~PointArray();
 
+public:
+	void push_back(const Point& point);
+	void insert(const int position, const Point& point);
+	void remove(const int postition);
+
 private:
 	int mLen;
 	Point* mPtr;
@@ -28,5 +33,5 @@ private:
 
 private:
 	void initialize(Point points[], int size);
-	void resize(int n);
+	void resize(int newSize);
 };

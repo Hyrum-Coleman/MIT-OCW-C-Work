@@ -2,6 +2,11 @@
 #include <string.h>
 #include <utility>
 
+/*
+
+Public Definitions
+
+*/
 
 PointArray::PointArray()
 {
@@ -29,30 +34,61 @@ PointArray::PointArray(Point point)
     initialize(&point, 1);
 }
 
-void PointArray::initialize(Point points[], int size)
-{
-    mPtr = new Point[size];
-    mLen = size;
-    memcpy(mPtr, points, size * sizeof(Point));
-}
-
 PointArray::~PointArray()
 {
     delete[] mPtr;
 }
 
-void PointArray::resize(int n)
+/*
+
+Public Functions
+
+*/
+
+void PointArray::push_back(const Point& point)
 {
-    if ((n / cBlockSize) > (mLen / cBlockSize))
+    resize(mLen + 1);
+    mPtr[mLen - 1] = point;
+}
+
+void PointArray::insert(const int position, const Point& point)
+{
+    mPtr[position] = point;
+}
+
+void PointArray::remove(const int postition)
+{
+    Point *tempPtr = mPtr;
+    tempPtr += postition;
+    memcpy((tempPtr - 1), (tempPtr + 1), (mLen - 1) * sizeof(Point));
+    resize(mLen - 1);
+}
+
+/*
+
+Private Functions
+
+*/
+
+void PointArray::initialize(Point points[], int size)
+{
+    mPtr = new Point[((size/cBlockSize) + 1) * cBlockSize];
+    mLen = size;
+    memcpy(mPtr, points, size * sizeof(Point));
+}
+
+void PointArray::resize(int newSize)
+{
+    if ((newSize / cBlockSize) > (mLen / cBlockSize)) // integer division hack
     {
-        Point* hold = new Point[((n / cBlockSize) + 1) * cBlockSize];
+        Point* hold = new Point[((newSize / cBlockSize) + 1) * cBlockSize];
         memcpy(hold, mPtr, mLen * sizeof(Point));
         delete[] mPtr;
-        mLen = n;
+        mLen = newSize;
         mPtr = hold;
     }
     else
     {
-        mLen = n;
+        mLen = newSize;
     }
 }
