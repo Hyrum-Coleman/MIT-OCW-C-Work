@@ -60,7 +60,7 @@ void PointArray::remove(const int postition)
 {
     Point *tempPtr = mPtr;
     tempPtr += postition;
-    memcpy((tempPtr - 1), (tempPtr + 1), (mLen - 1) * sizeof(Point));
+    memcpy((tempPtr), (tempPtr + 1), (mLen - postition - 1) * sizeof(Point));
     resize(mLen - 1);
 }
 
