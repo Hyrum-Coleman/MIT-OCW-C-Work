@@ -1,5 +1,5 @@
 #include "geometry.h"
-#include <string.h>
+#include <cstring>
 #include <utility>
 
 /*
@@ -56,12 +56,28 @@ void PointArray::insert(const int position, const Point& point)
     mPtr[position] = point;
 }
 
-void PointArray::remove(const int postition)
+void PointArray::remove(const int position)
 {
     Point *tempPtr = mPtr;
-    tempPtr += postition;
-    memcpy((tempPtr), (tempPtr + 1), (mLen - postition - 1) * sizeof(Point));
+    tempPtr += position;
+    memcpy((tempPtr), (tempPtr + 1), (mLen - position - 1) * sizeof(Point));
     resize(mLen - 1);
+}
+
+int PointArray::getSize() const {
+    return mLen;
+}
+
+void PointArray::clear() {
+
+}
+
+Point PointArray::get(const int position) {
+    return Point();
+}
+
+Point PointArray::get(const int position) const {
+    return Point();
 }
 
 /*
@@ -77,11 +93,11 @@ void PointArray::initialize(Point points[], int size)
     memcpy(mPtr, points, size * sizeof(Point));
 }
 
-void PointArray::resize(int newSize)
+void PointArray::resize(int newSize) // important to remember cBlockSize = 100
 {
     if ((newSize / cBlockSize) > (mLen / cBlockSize)) // integer division hack
     {
-        Point* hold = new Point[((newSize / cBlockSize) + 1) * cBlockSize];
+        auto* hold = new Point[((newSize / cBlockSize) + 1) * cBlockSize];
         memcpy(hold, mPtr, mLen * sizeof(Point));
         delete[] mPtr;
         mLen = newSize;
