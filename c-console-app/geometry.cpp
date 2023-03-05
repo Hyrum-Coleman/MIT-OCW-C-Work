@@ -1,6 +1,19 @@
 #include "geometry.h"
+#include <iostream>
 #include <cstring>
 #include <utility>
+
+void Point::printPoint()
+{
+    std::cout << "(" << mX << ", " << mY << ")\n";
+}
+
+
+/*
+
+POINT ARRAY CLASS
+
+*/
 
 /*
 
@@ -53,13 +66,15 @@ void PointArray::push_back(const Point& point)
 
 void PointArray::insert(const int position, const Point& point)
 {
-    mPtr[position] = point;
+    Point* tempPtr = mPtr + position;
+    memcpy((tempPtr + 1), (tempPtr), (mLen - position - 1) * sizeof(Point));
+    resize(mLen + 1);
+    *tempPtr = point;
 }
 
 void PointArray::remove(const int position)
 {
-    Point *tempPtr = mPtr;
-    tempPtr += position;
+    Point *tempPtr = mPtr + position;
     memcpy((tempPtr), (tempPtr + 1), (mLen - position - 1) * sizeof(Point));
     resize(mLen - 1);
 }
@@ -69,15 +84,17 @@ int PointArray::getSize() const {
 }
 
 void PointArray::clear() {
-
+    delete[] mPtr;
+    mPtr = nullptr;
+    mLen = 0;
 }
 
 Point PointArray::get(const int position) {
-    return Point();
+    return *(mPtr + position);
 }
 
 Point PointArray::get(const int position) const {
-    return Point();
+    return *(mPtr + position);
 }
 
 /*
@@ -108,3 +125,11 @@ void PointArray::resize(int newSize) // important to remember cBlockSize = 100
         mLen = newSize;
     }
 }
+
+
+/*
+
+POLYGON CLASS
+
+*/
+
