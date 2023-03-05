@@ -51,9 +51,13 @@ public:
 
 public:
 
-private:
+protected:
 	PointArray mPointArray;
 	static int mNumPoly;
 
 private:
+
+private:
+
+	
 };
