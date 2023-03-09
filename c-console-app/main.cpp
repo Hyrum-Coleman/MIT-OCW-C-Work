@@ -41,8 +41,7 @@ int main()
     somePoint.printPoint();
 
     cout << "BIG BREAK\n";
-    float number = 25.0;
-    cout << Q_rsqrt(number) << "\n";
+    cout << Q_rsqrt(25) << "\n";
 
     delete p;
     delete pArray;

@@ -48,16 +48,19 @@ private: // Private Functions
 class Polygon
 {
 public:
+	Polygon(Point points[], int size);
+	Polygon(PointArray pArray);
 
 public:
 
 protected:
 	PointArray mPointArray;
-	static int mNumPoly;
+	int mNumPoly;
 
 private:
 
 private:
+	void initialize();
 
 	
 };

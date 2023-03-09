@@ -133,3 +133,30 @@ POLYGON CLASS
 
 */
 
+
+/*
+
+PUBLIC DEFINITIONS
+
+*/
+
+Polygon::Polygon(Point points[], int size) :
+    mPointArray(points, size) {
+        ++mNumPoly;
+    }
+
+Polygon::Polygon(PointArray pArray)
+{
+
+}
+
+/*
+
+Private Functions
+
+*/
+
+void Polygon::initialize()
+{
+
+}
