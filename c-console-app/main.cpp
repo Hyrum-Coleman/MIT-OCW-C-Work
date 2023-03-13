@@ -45,5 +45,7 @@ int main()
     cout << "\nTRIANGLE ATTRIBUTES: \n";
     userTri->printAttributes();
 
+    delete userRect;
+    delete userTri;
     return 0;
 }
