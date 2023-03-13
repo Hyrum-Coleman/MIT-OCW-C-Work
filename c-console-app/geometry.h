@@ -10,7 +10,7 @@ public:
 	void setY(const int new_y) { mY = new_y; }
 
 public:
-	void printPoint();
+	void printPoint() const;
 
 private:
 	int mX, mY;
@@ -47,20 +47,34 @@ private: // Private Functions
 
 class Polygon
 {
-public:
+public: // Constructors Destructors
 	Polygon(Point points[], int size);
-	Polygon(PointArray pArray);
+	Polygon(PointArray &pArray);
+    ~Polygon() {--mNumPoly;}
 
-public:
+public: // Public Functions
+    virtual double area() {return 0;}
+    static int getNumPolygons() {return mNumPoly;}
+    int getNumSides() const {return mPointArray.getSize();}
+    const PointArray *getPoints() {return &mPointArray;}
 
-protected:
+
+protected: // Protected Members
 	PointArray mPointArray;
-	int mNumPoly;
+	static int mNumPoly;
 
-private:
+};
 
-private:
-	void initialize();
+class Rectangle : public Polygon {
 
-	
+public: // Constructors
+    Rectangle(Point &botLeftPoint, Point &topRightPoint);
+    Rectangle(int botLeftX, int botLeftY, int width, int height);
+
+public: // public functions
+    double area() override;
+
+private: // private members
+    int mRectWidth;
+    int mRectHeight;
 };

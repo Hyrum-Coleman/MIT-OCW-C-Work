@@ -1,9 +1,27 @@
 #include "geometry.h"
 #include <iostream>
 #include <cstring>
-#include <utility>
+#include <cmath>
 
-void Point::printPoint()
+/*
+
+ Array Hack
+
+*/
+
+Point constructorPoints[4];
+
+Point * updateConstructorPoints(const Point &p1, const Point &p2, const Point &p3, const Point &p4 = Point(0,0))
+{
+    constructorPoints[0] = p1;
+    constructorPoints[1] = p2;
+    constructorPoints[2] = p3;
+    constructorPoints[3] = p4;
+    return constructorPoints;
+}
+
+
+void Point::printPoint() const
 {
     std::cout << "(" << mX << ", " << mY << ")\n";
 }
@@ -133,6 +151,8 @@ POLYGON CLASS
 
 */
 
+int Polygon::mNumPoly = 0;
+
 
 /*
 
@@ -145,18 +165,44 @@ Polygon::Polygon(Point points[], int size) :
         ++mNumPoly;
     }
 
-Polygon::Polygon(PointArray pArray)
-{
+Polygon::Polygon(PointArray &pArray) :
+    mPointArray(pArray){
+        ++mNumPoly;
+    }
 
+
+/*
+
+ Rectangle Class
+
+*/
+
+/*
+
+Public Definitions
+
+*/
+
+Rectangle::Rectangle(Point &botLeftPoint, Point &topRightPoint) :
+Polygon(updateConstructorPoints(botLeftPoint, Point (botLeftPoint.getX(), topRightPoint.getY()), topRightPoint, Point (topRightPoint.getX(), botLeftPoint.getY())), 4)
+{
+    mRectWidth = abs(botLeftPoint.getX() - topRightPoint.getX());
+    mRectHeight = abs(botLeftPoint.getY() - topRightPoint.getY());
+}
+
+Rectangle::Rectangle(int botLeftX, int botLeftY, int width, int height) :
+Polygon(updateConstructorPoints(Point (botLeftX, botLeftY), Point (botLeftX, botLeftY + height), Point (botLeftX + width, botLeftY + height), Point (botLeftX + width, botLeftY)), 4)
+{
+    mRectWidth = width;
+    mRectHeight = height;
 }
 
 /*
 
-Private Functions
+ Public Functions
 
 */
 
-void Polygon::initialize()
-{
-
+double Rectangle::area() {
+    return mRectHeight * mRectWidth;
 }

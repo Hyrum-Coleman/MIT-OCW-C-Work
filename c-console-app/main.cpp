@@ -40,10 +40,28 @@ int main()
     cout << arrLen << '\n';
     somePoint.printPoint();
 
-    cout << "BIG BREAK\n";
+    cout << "\nBIG BREAK\n";
     cout << Q_rsqrt(25) << "\n";
+
+    cout << "\nPOLYGONS\n";
+
+    auto polygon = new Polygon(*pArray);
+    auto polygon2 = new Polygon (&point, 1);
+
+    auto rectangle = new Rectangle(1, 1, 5, 4);
+    double rectArea = rectangle->area();
+    cout << "rectangle area: " << rectArea << "\n";
+
+    int numPoly = Polygon::getNumPolygons();
+
+    cout << numPoly << "\n";
 
     delete p;
     delete pArray;
+    delete polygon;
+    numPoly = Polygon::getNumPolygons();
+    cout << numPoly << "\n";
+    delete polygon2;
+    delete rectangle;
     return 0;
 }
