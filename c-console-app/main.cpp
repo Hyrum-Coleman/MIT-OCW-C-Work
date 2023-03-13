@@ -50,7 +50,13 @@ int main()
 
     auto rectangle = new Rectangle(1, 1, 5, 4);
     double rectArea = rectangle->area();
+    auto p1 = Point(28, 2);
+    auto p2 = Point(5, 9);
+    auto p3 = Point(16, 18);
+    auto triangle = new Triangle(p1, p2, p3);
+    double triArea = triangle->area();
     cout << "rectangle area: " << rectArea << "\n";
+    cout << "triangle area: " << triArea << "\n";
 
     int numPoly = Polygon::getNumPolygons();
 

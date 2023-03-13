@@ -206,3 +206,34 @@ Polygon(updateConstructorPoints(Point (botLeftX, botLeftY), Point (botLeftX, bot
 double Rectangle::area() {
     return mRectHeight * mRectWidth;
 }
+
+/*
+
+ Triangle Class
+
+*/
+
+/*
+
+ Public Definitions
+
+*/
+
+Triangle::Triangle(Point &p1, Point &p2, Point &p3) :
+Polygon(updateConstructorPoints(p1, p2, p3), 3)
+{
+    mALength = sqrt( pow(p1.getX() - p2.getX(), 2) + pow(p1.getY() - p2.getY(), 2) );
+    mBLength = sqrt(pow(p2.getX() - p3.getX(), 2) + pow(p2.getY() - p3.getY(), 2));
+    mCLength = sqrt(pow(p1.getX() - p3.getX(), 2) + pow(p1.getY() - p3.getY(), 2));
+}
+
+/*
+
+ Public Functions
+
+*/
+
+double Triangle::area() {
+    double s = (mALength + mBLength + mCLength) / 2.0;
+    return sqrt(s * (s - mALength) * (s - mBLength) * (s - mCLength));
+}

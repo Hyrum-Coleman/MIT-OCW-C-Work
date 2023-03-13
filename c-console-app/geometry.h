@@ -78,3 +78,17 @@ private: // private members
     int mRectWidth;
     int mRectHeight;
 };
+
+class Triangle : public Polygon {
+
+public: // constructors
+    Triangle(Point &a, Point &b, Point &c);
+
+public: // public functions
+    double area() override;
+
+private: // private members
+    double mALength;
+    double mBLength;
+    double mCLength;
+};
