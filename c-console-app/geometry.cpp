@@ -170,6 +170,18 @@ Polygon::Polygon(PointArray &pArray) :
         ++mNumPoly;
     }
 
+void Polygon::printAttributes(Polygon *) {
+    std::cout << "Area: " << area() << "\n";
+
+    for(int i = 0; i<mPointArray.getSize(); i++)
+    {
+        auto tempPoint = mPointArray.get(i);
+        std::cout << "Point " << i << ": " << "(" << tempPoint.getX() << ", " << tempPoint.getY() << ")\n";
+
+    }
+
+}
+
 
 /*
 

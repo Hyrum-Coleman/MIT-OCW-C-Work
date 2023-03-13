@@ -16,6 +16,8 @@ private:
 	int mX, mY;
 };
 
+
+
 class PointArray
 {
 public: // Public guys
@@ -45,6 +47,8 @@ private: // Private Functions
 	void resize(int newSize);
 };
 
+
+
 class Polygon
 {
 public: // Constructors Destructors
@@ -57,13 +61,15 @@ public: // Public Functions
     static int getNumPolygons() {return mNumPoly;}
     int getNumSides() const {return mPointArray.getSize();}
     const PointArray *getPoints() {return &mPointArray;}
-
+    void printAttributes(Polygon *);
 
 protected: // Protected Members
 	PointArray mPointArray;
 	static int mNumPoly;
 
 };
+
+
 
 class Rectangle : public Polygon {
 
@@ -78,6 +84,8 @@ private: // private members
     int mRectWidth;
     int mRectHeight;
 };
+
+
 
 class Triangle : public Polygon {
 

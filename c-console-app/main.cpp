@@ -58,6 +58,8 @@ int main()
     cout << "rectangle area: " << rectArea << "\n";
     cout << "triangle area: " << triArea << "\n";
 
+    triangle->printAttributes(triangle);
+
     int numPoly = Polygon::getNumPolygons();
 
     cout << numPoly << "\n";
