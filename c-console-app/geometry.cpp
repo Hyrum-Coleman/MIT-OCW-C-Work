@@ -170,16 +170,14 @@ Polygon::Polygon(PointArray &pArray) :
         ++mNumPoly;
     }
 
-void Polygon::printAttributes(Polygon *) {
+void Polygon::printAttributes() {
     std::cout << "Area: " << area() << "\n";
-
     for(int i = 0; i<mPointArray.getSize(); i++)
     {
         auto tempPoint = mPointArray.get(i);
         std::cout << "Point " << i << ": " << "(" << tempPoint.getX() << ", " << tempPoint.getY() << ")\n";
 
     }
-
 }
 
 
@@ -217,6 +215,12 @@ Polygon(updateConstructorPoints(Point (botLeftX, botLeftY), Point (botLeftX, bot
 
 double Rectangle::area() {
     return mRectHeight * mRectWidth;
+}
+
+void Rectangle::printAttributes() {
+    Polygon::printAttributes();
+    std::cout << "Width: " << mRectWidth << "\n";
+    std::cout << "Height: " << mRectHeight << "\n";
 }
 
 /*

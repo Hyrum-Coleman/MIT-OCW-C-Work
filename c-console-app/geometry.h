@@ -61,7 +61,7 @@ public: // Public Functions
     static int getNumPolygons() {return mNumPoly;}
     int getNumSides() const {return mPointArray.getSize();}
     const PointArray *getPoints() {return &mPointArray;}
-    void printAttributes(Polygon *);
+    virtual void printAttributes();
 
 protected: // Protected Members
 	PointArray mPointArray;
@@ -79,6 +79,7 @@ public: // Constructors
 
 public: // public functions
     double area() override;
+    void printAttributes() override;
 
 private: // private members
     int mRectWidth;
