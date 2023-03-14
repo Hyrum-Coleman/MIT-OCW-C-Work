@@ -1,33 +1,61 @@
 #include <iostream>
 #include <cstring>
-#include <algorithm>
 #include "geometry.h"
 
 
 using namespace std;
 
-const string VOWELS = "aeiou";
+const string VOWELS = "aeiouAEIOU";
 
 std::unique_ptr<std::string> pigLatinify(const string& wordToChange)
 {
     auto pigLatinPtr = std::make_unique<std::string>(wordToChange);
     char first_char = wordToChange[0];
 
+    if (pigLatinPtr->empty())
+    {
+        cout << "This string is empty and we are sad\n";
+        cout << "We're giving you back your string unchanged";
+        return pigLatinPtr;
+    }
+
+    *pigLatinPtr += "-";
+
     for(char i : VOWELS)
     {
         if (first_char == i)
         {
-            *pigLatinPtr += "-way";
+            *pigLatinPtr += "way";
+            return pigLatinPtr;
         }
     }
+
+    pigLatinPtr->erase(pigLatinPtr->begin());
+
+    if (first_char == 'q')
+    {
+        char hold = (*pigLatinPtr)[0];
+        pigLatinPtr->erase(pigLatinPtr->begin());
+        *pigLatinPtr += first_char;
+        *pigLatinPtr += hold;
+        *pigLatinPtr += "ay";
+        return pigLatinPtr;
+    }
+   
+    *pigLatinPtr += first_char;
+    *pigLatinPtr += "ay";
+
     return pigLatinPtr;
 }
 
 int main()
 {
-    std::unique_ptr<std::string>pigLatinPtr = pigLatinify("apple");
-    cout << *pigLatinPtr;
-    cout << "\n";
+    {
+        std::unique_ptr<std::string>pigLatinPtr = pigLatinify("Easy");
+        cout << *pigLatinPtr;
+        cout << "\n";
+    }
+
     int llX;
     int llY;
     int trX;
