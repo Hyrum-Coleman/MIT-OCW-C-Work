@@ -1,10 +1,33 @@
 #include <iostream>
+#include <cstring>
+#include <algorithm>
 #include "geometry.h"
+
 
 using namespace std;
 
+const string VOWELS = "aeiou";
+
+std::unique_ptr<std::string> pigLatinify(const string& wordToChange)
+{
+    auto pigLatinPtr = std::make_unique<std::string>(wordToChange);
+    char first_char = wordToChange[0];
+
+    for(char i : VOWELS)
+    {
+        if (first_char == i)
+        {
+            *pigLatinPtr += "-way";
+        }
+    }
+    return pigLatinPtr;
+}
+
 int main()
 {
+    std::unique_ptr<std::string>pigLatinPtr = pigLatinify("apple");
+    cout << *pigLatinPtr;
+    cout << "\n";
     int llX;
     int llY;
     int trX;
