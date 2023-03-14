@@ -4,8 +4,8 @@ class Point
 
 public:
 	explicit Point(int x=0, int y=0) { mX = x; mY = y; }
-	int getX() const { return mX; }
-	int getY() const { return mY; }
+	[[nodiscard]] int getX() const { return mX; }
+	[[nodiscard]] int getY() const { return mY; }
 	void setX(const int new_x) { mX = new_x; }
 	void setY(const int new_y) { mY = new_y; }
 
@@ -32,10 +32,10 @@ public: // Public Functions
 	void push_back(const Point& point);
 	void insert(int position, const Point& point);
 	void remove(int position);
-     int getSize() const;
+    [[nodiscard]] int getSize() const;
     void clear();
-    Point get(int position);
-    Point get(int position) const;
+    [[nodiscard]] Point get(int position);
+    [[nodiscard]] Point get(int position) const;
 
 private: // Private guys
 	int mLen{};
@@ -59,8 +59,8 @@ public: // Constructors Destructors
 public: // Public Functions
     virtual double area() {return 0;}
     static int getNumPolygons() {return mNumPoly;}
-    int getNumSides() const {return mPointArray.getSize();}
-    const PointArray *getPoints() {return &mPointArray;}
+    [[nodiscard]] int getNumSides() const {return mPointArray.getSize();}
+    [[nodiscard]] const PointArray *getPoints() {return &mPointArray;}
     virtual void printAttributes();
 
 protected: // Protected Members
@@ -80,10 +80,18 @@ public: // Constructors
 public: // public functions
     double area() override;
     void printAttributes() override;
+    [[nodiscard]] int width() const;
+    [[nodiscard]] int height() const;
 
 private: // private members
     int mRectWidth;
     int mRectHeight;
+
+private: // private functions
+    void setWidth(Point botLeft, Point topRight);
+    void setHeight(Point botLeft, Point topRight);
+    void setWidth(int width);
+    void setHeight(int height);
 };
 
 
@@ -95,6 +103,9 @@ public: // constructors
 
 public: // public functions
     double area() override;
+    [[nodiscard]] double aLen() const;
+    [[nodiscard]] double bLen() const;
+    [[nodiscard]] double cLen() const;
 
 private: // private members
     double mALength;

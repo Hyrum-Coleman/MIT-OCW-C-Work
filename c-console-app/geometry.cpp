@@ -196,15 +196,15 @@ Public Definitions
 Rectangle::Rectangle(Point &botLeftPoint, Point &topRightPoint) :
 Polygon(updateConstructorPoints(botLeftPoint, Point (botLeftPoint.getX(), topRightPoint.getY()), topRightPoint, Point (topRightPoint.getX(), botLeftPoint.getY())), 4)
 {
-    mRectWidth = abs(botLeftPoint.getX() - topRightPoint.getX());
-    mRectHeight = abs(botLeftPoint.getY() - topRightPoint.getY());
+    this->setWidth(botLeftPoint, topRightPoint);
+    this->setHeight(botLeftPoint, topRightPoint);
 }
 
 Rectangle::Rectangle(int botLeftX, int botLeftY, int width, int height) :
 Polygon(updateConstructorPoints(Point (botLeftX, botLeftY), Point (botLeftX, botLeftY + height), Point (botLeftX + width, botLeftY + height), Point (botLeftX + width, botLeftY)), 4)
 {
-    mRectWidth = width;
-    mRectHeight = height;
+    this->setWidth(width);
+    this->setHeight(height);
 }
 
 /*
@@ -214,13 +214,43 @@ Polygon(updateConstructorPoints(Point (botLeftX, botLeftY), Point (botLeftX, bot
 */
 
 double Rectangle::area() {
-    return mRectHeight * mRectWidth;
+    return this->height() * this->width();
 }
 
 void Rectangle::printAttributes() {
     Polygon::printAttributes();
-    std::cout << "Width: " << mRectWidth << "\n";
-    std::cout << "Height: " << mRectHeight << "\n";
+    std::cout << "Width: " << this->width() << "\n";
+    std::cout << "Height: " << this->height() << "\n";
+}
+
+int Rectangle::width() const {
+    return mRectWidth;
+}
+
+int Rectangle::height() const {
+    return mRectHeight;
+}
+
+/*
+
+ Private Functions
+
+*/
+
+void Rectangle::setWidth(Point botLeft, Point topRight) {
+    mRectWidth = abs(botLeft.getX() - topRight.getX());
+}
+
+void Rectangle::setHeight(Point botLeft, Point topRight) {
+    mRectHeight = abs(botLeft.getY() - topRight.getY());
+}
+
+void Rectangle::setWidth(int width) {
+    mRectWidth = width;
+}
+
+void Rectangle::setHeight(int height) {
+    mRectHeight = height;
 }
 
 /*
@@ -252,4 +282,16 @@ Polygon(updateConstructorPoints(p1, p2, p3), 3)
 double Triangle::area() {
     double s = (mALength + mBLength + mCLength) / 2.0;
     return sqrt(s * (s - mALength) * (s - mBLength) * (s - mCLength));
+}
+
+double Triangle::cLen() const {
+    return mCLength;
+}
+
+double Triangle::bLen() const {
+    return mBLength;
+}
+
+double Triangle::aLen() const {
+    return mALength;
 }
