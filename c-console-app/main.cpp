@@ -32,10 +32,10 @@ int main()
     cout << "Enter 2 floats to compare";
     cin >> floatVal1 >> floatVal2;
 
-    intMin = min_template(intVal1, intVal2);
+    intMin = MIN_MACRO(intVal1, intVal2);
     doubleMin = min_template(doubleVal1, doubleVal2);
-    charMin = min_template(charVal1, charVal2);
-    floatMin = MIN_MACRO(floatVal1, floatVal2);
+    charMin = MIN_MACRO(charVal1, charVal2);
+    floatMin = min_template(floatVal1, floatVal2);
 
     cout << endl;
 
