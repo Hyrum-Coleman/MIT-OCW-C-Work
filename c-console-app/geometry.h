@@ -51,7 +51,7 @@ private: // Private Functions
 
 class Polygon
 {
-public: // Constructors Destructors
+public: // Constructors Destructor
 	Polygon(Point points[], int size);
 	Polygon(PointArray &pArray);
     ~Polygon() {--mNumPoly;}

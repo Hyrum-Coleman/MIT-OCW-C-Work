@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <vector>
 
@@ -21,24 +22,25 @@ class Stack {
 
 public:
     explicit Stack() = default;
-    explicit Stack(T initVal) {mStack.push_back(initVal);}
-    bool isEmpty() {return mStack.empty();}
+    explicit Stack(T init_val) {mStack.push_back(init_val);}
+    bool is_empty() {return mStack.empty();}
     void push(const T &item) {mStack.push_back(item);}
     [[nodiscard]] T& top() {return mStack.back();}
-    void pop() {(this->isEmpty()) ? (void()) : (mStack.pop_back());}
-    [[nodiscard]] int getSize() {return mStack.size();}
+    void pop() {(this->is_empty()) ? (void()) : (mStack.pop_back());}
+    [[nodiscard]] int get_size() {return mStack.size();}  // NOLINT(clang-diagnostic-shorten-64-to-32)
 
 
-    void printStack() {for(int i = this->getSize(); i > 0, i--;){std::cout << this->mStack[i] << std::endl;}}
+
+    void print_stack() { for (int i = this->get_size()-1; i >= 0; --i) { std::cout << this->mStack[i] << std::endl; } }
 
     friend Stack operator+(Stack<T> stack1, Stack<T> stack2)
     {
-        Stack<T> overloadResult;
+        Stack<T> overload_result;
 
-        overloadResult.mStack.insert(overloadResult.mStack.end(), stack1.mStack.begin(), stack1.mStack.end());
-        overloadResult.mStack.insert(overloadResult.mStack.end(), stack2.mStack.begin(), stack2.mStack.end());
+        overload_result.mStack.insert(overload_result.mStack.end(), stack1.mStack.begin(), stack1.mStack.end());
+        overload_result.mStack.insert(overload_result.mStack.end(), stack2.mStack.begin(), stack2.mStack.end());
 
-        return overloadResult;
+        return overload_result;
     }
 
 private:

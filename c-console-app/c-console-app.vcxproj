@@ -153,6 +153,7 @@
     <ClInclude Include="computePi.h" />
     <ClInclude Include="factorialGoneWrong.h" />
     <ClInclude Include="geometry.h" />
+    <ClInclude Include="HW4_min.h" />
     <ClInclude Include="HW7.h" />
     <ClInclude Include="statGen.h" />
     <ClInclude Include="sumFunction.h" />
