@@ -1,6 +1,7 @@
 #include <iostream>
 #include "HW4_min.h"
 #include "geometry.h"
+#include <vector>
 #define MIN_MACRO(val1, val2) ((val1 < val2) ? val1 : val2 )
 
 using namespace std;
@@ -60,21 +61,21 @@ int main()
 //    cout << endl << "BIG BREAK" << endl;
 
     Stack<int> myStack;
+    Stack<int> myStack2;
+    myStack.push(1);
+    myStack.push(2);
 
+    myStack2.push(3);
+    myStack2.push(4);
 
+    Stack<int> addedStack = myStack + myStack2;
 
-    cout << "The stack is empty: " << myStack.isEmpty() << endl;
+    addedStack.push(26);
+    addedStack.push(18);
+    addedStack.push(5);
 
-    myStack.push(34);
-    myStack.push(3);
-    myStack.pop();
-    int topVal = myStack.top();
+    addedStack.printStack();
 
-    cout << "The stack is empty: " << myStack.isEmpty() << endl;
-    cout << "The value at the top is: " << topVal << endl;
-
-    myStack.pop();
-    cout << "The Stack is empty: " << myStack.isEmpty() << endl;
 
 
     return 0;
