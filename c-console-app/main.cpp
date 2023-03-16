@@ -68,9 +68,9 @@ int main()
     my_stack2.push(3);
     my_stack2.push(4);
 
-Stack<int> added_stack = my_stack + my_stack2;
+	auto added_stack = my_stack + my_stack2;
 
-added_stack.push(26);
+	added_stack.push(26);
     added_stack.push(18);
     added_stack.push(5);
 

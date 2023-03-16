@@ -40,7 +40,7 @@ public: // Public Functions
 private: // Private guys
 	int mLen{};
 	Point* mPtr{};
-	static const int cBlockSize = 100;
+	static constexpr int cBlockSize = 100;
 
 private: // Private Functions
 	void initialize(Point points[], int size);
@@ -54,7 +54,7 @@ class Polygon
 public: // Constructors Destructor
 	Polygon(Point points[], int size);
 	Polygon(PointArray &pArray);
-    ~Polygon() {--mNumPoly;}
+	virtual ~Polygon() {--mNumPoly;}
 
 public: // Public Functions
     virtual double area() {return 0;}
