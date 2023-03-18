@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="arrayOperations.cpp" />
     <ClCompile Include="geometry.cpp" />
+    <ClCompile Include="HW4_main.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="computePi.cpp" />
     <ClCompile Include="factorialGoneWrong.cpp" />

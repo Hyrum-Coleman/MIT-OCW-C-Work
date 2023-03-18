@@ -45,6 +45,9 @@
     <ClCompile Include="geometry.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="HW4_main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="statGen.h">
@@ -66,6 +69,9 @@
       <Filter>Header Files\HW1&amp;2</Filter>
     </ClInclude>
     <ClInclude Include="geometry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HW4_min.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
