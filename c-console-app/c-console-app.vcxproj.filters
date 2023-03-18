@@ -19,6 +19,18 @@
     <Filter Include="Source Files\HW1&amp;2">
       <UniqueIdentifier>{adf7cce1-8277-44df-a1cc-c284e32ef4b4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\HW4">
+      <UniqueIdentifier>{43b8aed2-ea84-4d51-ba86-b7ae231d9559}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\HW3">
+      <UniqueIdentifier>{3ce4b45c-f38c-4cb1-9b0e-a39c01b37f18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\HW3">
+      <UniqueIdentifier>{e8a02296-4c3f-4554-8133-98c8cd24065c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\HW4">
+      <UniqueIdentifier>{f38d800e-b794-41b1-a4a2-78906b81238b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -43,9 +55,12 @@
       <Filter>Source Files\HW1&amp;2</Filter>
     </ClCompile>
     <ClCompile Include="geometry.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\HW3</Filter>
     </ClCompile>
     <ClCompile Include="HW4_main.cpp">
+      <Filter>Source Files\HW4</Filter>
+    </ClCompile>
+    <ClCompile Include="poker.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -68,10 +83,13 @@
     <ClInclude Include="sumFunction.h">
       <Filter>Header Files\HW1&amp;2</Filter>
     </ClInclude>
-    <ClInclude Include="geometry.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="HW4_min.h">
+      <Filter>Header Files\HW4</Filter>
+    </ClInclude>
+    <ClInclude Include="geometry.h">
+      <Filter>Header Files\HW3</Filter>
+    </ClInclude>
+    <ClInclude Include="poker.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

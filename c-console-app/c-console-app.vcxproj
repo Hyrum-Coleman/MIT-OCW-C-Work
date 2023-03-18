@@ -146,6 +146,7 @@
     <ClCompile Include="computePi.cpp" />
     <ClCompile Include="factorialGoneWrong.cpp" />
     <ClCompile Include="HW7.cpp" />
+    <ClCompile Include="poker.cpp" />
     <ClCompile Include="sumFunction.cpp" />
     <ClCompile Include="statGen.cpp" />
   </ItemGroup>
@@ -156,6 +157,7 @@
     <ClInclude Include="geometry.h" />
     <ClInclude Include="HW4_min.h" />
     <ClInclude Include="HW7.h" />
+    <ClInclude Include="poker.h" />
     <ClInclude Include="statGen.h" />
     <ClInclude Include="sumFunction.h" />
   </ItemGroup>
