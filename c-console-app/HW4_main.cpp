@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int main()
+int main_old()
 {
     int int_val1;
     int int_val2;
