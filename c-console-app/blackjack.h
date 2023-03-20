@@ -45,8 +45,10 @@ public:
 
 
 public:
-	void draw();
+	void draw(int hand_size);
 	void print_hand() const;
+    void print_top_card() const;
+    int sum_hand();
 
 private:
 	std::vector<Card> m_hand_array;
@@ -56,5 +58,21 @@ private:
 
 class Game
 {
+public:
+    Game();
+    ~Game() = default;
 
+public:
+    void play_blackjack();
+    void print_player_hand() const;
+    void print_dealer_hand() const;
+    void print_deck() const;
+
+
+private:
+    Deck *m_game_deck;
+    Hand *m_player_hand;
+    Hand *m_dealer_hand;
+    bool m_player_busted = false;
+    bool m_dealer_busted = false;
 };
