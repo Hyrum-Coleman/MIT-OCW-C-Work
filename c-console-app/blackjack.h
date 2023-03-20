@@ -3,12 +3,16 @@
 #include <vector>
 
 
-class card
+class Card
 {
 public:
-	card(int card_val, std::string card_suit);
+	Card(int card_val, std::string card_suit);
 	[[nodiscard]] int get_card_val() const { return m_card_val; }
 	[[nodiscard]] std::string get_card_face() const { return m_card_suit; }
+
+public:
+    void print_card() const;
+    [[nodiscard]] std::string get_string_card_val() const;
 
 private: //private variables
 	int m_card_val; // 2-14 2 through Ace (not value added in game of blackjack, just raw value)
@@ -17,28 +21,27 @@ private: //private variables
 };
 
 
-class deck
+class Deck
 {
 public:
-	deck();
+	Deck();
 
-	static void set_num_cards(int num_cards);
-	[[nodiscard]] int get_num_cards() const { return m_num_cards_in_deck; }
+	[[nodiscard]] int get_num_cards() { return m_card_array.size(); }
 
 public: // public methods
 	void shuffle();
 	void print_deck() const;
+    Card get_next_card();
 
 protected:
-	std::vector<card> m_card_array;
-	static int m_num_cards_in_deck;
+	std::vector<Card> m_card_array;
 };
 
 
-class hand : public deck
+class Hand
 {
 public:
-	hand(int num_cards);
+	Hand(Deck * deck, int hand_size);
 
 
 public:
@@ -46,5 +49,12 @@ public:
 	void print_hand() const;
 
 private:
-	std::vector<card> m_hand_array;
+	std::vector<Card> m_hand_array;
+    Deck * m_deck;
+};
+
+
+class Game
+{
+
 };

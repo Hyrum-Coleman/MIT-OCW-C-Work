@@ -1,12 +1,12 @@
 #include <iostream>
 
-#include "poker.h"
+#include "blackjack.h"
 
 using namespace std;
 
 int main()
 {
-	auto game_deck = new deck();
+	auto game_deck = new Deck();
 	game_deck->print_deck();
 	game_deck->shuffle();
 
@@ -18,7 +18,7 @@ int main()
 	cout << game_deck->get_num_cards();
 	
 
-	auto player_hand = new hand(2);
+	auto player_hand = new Hand(game_deck, 2);
 	cout << endl << endl << "gaming" << endl;
 
 	player_hand->print_hand();
