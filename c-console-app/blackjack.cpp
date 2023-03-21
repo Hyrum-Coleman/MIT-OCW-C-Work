@@ -163,6 +163,9 @@ void Game::print_deck() const { m_game_deck->print_deck(); }
 
 void Game::play_blackjack()
 {
+    bool player_busted = false;
+    bool dealer_busted = false;
+
     std::cout << "Dealer's Card: ";
     m_dealer_hand->print_top_card();
     std::cout << std::endl;
@@ -205,7 +208,7 @@ void Game::play_blackjack()
     if (m_player_hand->sum_hand() > 21)
     {
         std::cout << "Bust!" << std::endl;
-        m_player_busted = true;
+        player_busted = true;
     }
     else if (m_player_hand->sum_hand() == 21)
     {
@@ -216,7 +219,7 @@ void Game::play_blackjack()
     std::cout << std::endl << "Revealing the Dealer's Hand... " << std::endl;
     m_dealer_hand->print_hand();
 
-    if (m_player_busted)
+    if (player_busted)
     {
         std::cout << std::endl << "The dealer wins" << std::endl;
         return void();
@@ -232,10 +235,10 @@ void Game::play_blackjack()
     if (m_dealer_hand->sum_hand() > 21)
     {
         std::cout << "The dealer busts!" << std::endl;
-        m_dealer_busted = true;
+        dealer_busted = true;
     }
 
-    if (m_dealer_busted)
+    if (dealer_busted)
     {
         std::cout << "The player wins" << std::endl;
         return void();

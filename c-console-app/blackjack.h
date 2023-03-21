@@ -71,6 +71,4 @@ private:
     Deck *m_game_deck;
     Hand *m_player_hand;
     Hand *m_dealer_hand;
-    bool m_player_busted = false;
-    bool m_dealer_busted = false;
 };
