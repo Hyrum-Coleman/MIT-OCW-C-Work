@@ -3,11 +3,8 @@
 #include <algorithm>
 #include <random>
 #include <utility>
-#include <vector>
 #include <chrono>
 #include <iostream>
-
-unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
 
 /*
  
@@ -41,8 +38,6 @@ std::string Card::get_string_card_val() const {
     return std::to_string(m_card_val);
 }
 
-
-
 /*
 
 Deck Class
@@ -62,6 +57,7 @@ Deck::Deck()
 
 void Deck::shuffle()
 {
+    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
 	std::shuffle(m_card_array.begin(), m_card_array.end(), std::default_random_engine(seed));
 }
 
@@ -78,7 +74,6 @@ Card Deck::get_next_card() {
     m_card_array.pop_back();
     return ret_val;
 }
-
 
 /*
 
@@ -165,8 +160,6 @@ Game::Game()
 
 
 void Game::print_deck() const { m_game_deck->print_deck(); }
-void Game::print_player_hand() const { m_player_hand->print_hand(); }
-void Game::print_dealer_hand() const { std::cout << m_dealer_hand; }
 
 void Game::play_blackjack()
 {
@@ -189,13 +182,6 @@ void Game::play_blackjack()
         std::cout << "Not a valid input!" << std::endl;
     }
 
-    if (player_choice == "h")
-    {
-        m_player_hand->draw(1);
-        m_player_hand->print_hand();
-        std::cout << std::endl;
-    }
-
     if (player_choice == "d")
     {
         m_player_hand->draw(1);
@@ -206,47 +192,103 @@ void Game::play_blackjack()
     while (player_choice == "h")
     {
 
-        if (m_player_hand->sum_hand() > 21)
+        m_player_hand->draw(1);
+        m_player_hand->print_hand();
+        std::cout << std::endl;
+        if (m_player_hand->sum_hand() >= 21)
         {
-            std::cout << "You busted" << std::endl;
             break;
         }
-        if (m_player_hand->sum_hand() == 21)
-        {
-            std::cout << "BLACKJACK" << std::endl;
-            break;
-        }
-
         std::cout << "Will you hit or stand? (h,s)";
         std::cin >> player_choice;
-        if (player_choice == "h")
-        {
-            m_player_hand->draw(1);
-            m_player_hand->print_hand();
-            std::cout << std::endl;
-        }
+    }
+    if (m_player_hand->sum_hand() > 21)
+    {
+        std::cout << "Bust!" << std::endl;
+        m_player_busted = true;
+    }
+    else if (m_player_hand->sum_hand() == 21)
+    {
+        std::cout << "Blackjack!" << std::endl;
     }
     // if we're here we have an invalid input or "s"
 
     std::cout << std::endl << "Revealing the Dealer's Hand... " << std::endl;
     m_dealer_hand->print_hand();
 
-    while(m_dealer_hand->sum_hand() < 17)
+    if (m_player_busted)
+    {
+        std::cout << std::endl << "The dealer wins" << std::endl;
+        return void();
+    }
+
+    while((m_dealer_hand->sum_hand() < 17) && (m_dealer_hand->sum_hand() < m_player_hand->sum_hand()) )
     {
         m_dealer_hand->draw(1);
         m_dealer_hand->print_top_card();
     }
+    std::cout << std::endl;
 
-    if (m_player_hand->sum_hand() > 21)
-    {
-        std::cout << "You busted!" << std::endl;
-        m_player_busted = true;
-    }
     if (m_dealer_hand->sum_hand() > 21)
     {
-        std::cout << "The dealer busted!" << std::endl;
+        std::cout << "The dealer busts!" << std::endl;
         m_dealer_busted = true;
     }
 
+    if (m_dealer_busted)
+    {
+        std::cout << "The player wins" << std::endl;
+        return void();
+    }
 
+    if(m_player_hand->sum_hand() > m_dealer_hand->sum_hand() )
+    {
+        std::cout << "The player wins" << std::endl;
+    }
+    else if (m_player_hand->sum_hand() < m_dealer_hand->sum_hand() )
+    {
+        std::cout << "The dealer wins" << std::endl;
+    }
+    else if (m_player_hand->sum_hand() == m_dealer_hand->sum_hand() )
+    {
+        std::cout << "Draw" << std::endl;
+    }
+}
+
+void Game::game_loop()
+{
+    std::string game_continue;
+    int num_games = 0;
+
+    do
+    {
+        if ((num_games != 0) && (m_game_deck->get_num_cards() >= 10))
+        {
+            delete m_player_hand;
+            delete m_dealer_hand;
+
+            m_player_hand = new Hand(m_game_deck, 2);
+            m_dealer_hand = new Hand(m_game_deck, 2);
+        }
+        if (m_game_deck->get_num_cards() < 10)
+        {
+            std::cout << "Resetting game deck!" << std::endl;
+
+            delete m_player_hand;
+            delete m_dealer_hand;
+            delete m_game_deck;
+            m_game_deck = new Deck();
+            m_game_deck->shuffle();
+
+            m_player_hand = new Hand(m_game_deck, 2);
+            m_dealer_hand = new Hand(m_game_deck, 2);
+        }
+
+        play_blackjack();
+        num_games++;
+
+        std::cout << std::endl << "Would you like to play again? (y/n) ";
+        std::cin >> game_continue;
+    }
+    while(game_continue == "y");
 }

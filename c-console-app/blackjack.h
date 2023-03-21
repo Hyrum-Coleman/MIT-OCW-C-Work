@@ -64,11 +64,9 @@ public:
 
 public:
     void play_blackjack();
-    void print_player_hand() const;
-    void print_dealer_hand() const;
+    void game_loop();
     void print_deck() const;
-
-
+    
 private:
     Deck *m_game_deck;
     Hand *m_player_hand;
