@@ -60,7 +60,7 @@
     <ClCompile Include="HW4_main.cpp">
       <Filter>Source Files\HW4</Filter>
     </ClCompile>
-    <ClCompile Include="poker.cpp">
+    <ClCompile Include="blackjack.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -89,7 +89,7 @@
     <ClInclude Include="geometry.h">
       <Filter>Header Files\HW3</Filter>
     </ClInclude>
-    <ClInclude Include="poker.h">
+    <ClInclude Include="blackjack.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
