@@ -157,6 +157,7 @@ Game::Game()
     m_player_hand = new Hand(m_game_deck, 2);
     m_dealer_hand = new Hand(m_game_deck, 2);
     m_players_childrens_college_fund = 1000;
+    m_player_bet = 0;
 }
 
 
