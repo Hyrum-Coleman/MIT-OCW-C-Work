@@ -108,12 +108,10 @@ void Hand::print_top_card() const
     m_hand_array.back().print_card();
 }
 
-int Hand::sum_hand() // Technically this algo is now O(n^2) for no reason whatsoever, but my input of cards is so low I'm dealing with it.
-// I was going to try and sort it, but standard sorting algorithms didn't like my card class as input, and the time it'll take to write my own will be longer than the extra time
-// for being O(n^2)
+int Hand::sum_hand()
 {
     int ret_sum = 0;
-    for(auto &i : m_hand_array)
+    for(auto &i : m_hand_array) // sums card vals except aces
     {
         if (i.get_string_card_val() == "Ace") // ignore aces until all other cards are summed
         {
@@ -122,9 +120,11 @@ int Hand::sum_hand() // Technically this algo is now O(n^2) for no reason whatso
         if ((i.get_card_val() > 10) && (i.get_card_val() < 14)) // These are all the face cards except the ace
         {
             ret_sum += 10;
-            continue;
         }
-        ret_sum += i.get_card_val();
+        else
+        {
+            ret_sum += i.get_card_val();
+        }
     }
 
     for(auto &i : m_hand_array) // now handle the aces
@@ -132,12 +132,10 @@ int Hand::sum_hand() // Technically this algo is now O(n^2) for no reason whatso
         if ((i.get_string_card_val() == "Ace") && ((ret_sum + 11) <= 21))
         {
             ret_sum += 11;
-            continue;
         }
         else if (i.get_string_card_val() == "Ace")
         {
             ret_sum += 1;
-            continue;
         }
     }
 
@@ -163,7 +161,7 @@ Game::Game()
 
 void Game::print_deck() const { m_game_deck->print_deck(); }
 
-void Game::play_blackjack()
+void Game::play_blackjack() // Simplify simplify simplify
 {
     bool player_busted = false;
     bool dealer_busted = false;
@@ -293,7 +291,7 @@ void Game::game_loop()
             m_player_hand = new Hand(m_game_deck, 2);
             m_dealer_hand = new Hand(m_game_deck, 2);
         }
-        if (m_game_deck->get_num_cards() < 10)
+        if (m_game_deck->get_num_cards() < 10) // fix this by using a function to add new cards to the same deck at draw time
         {
             std::cout << "Resetting game deck!" << std::endl;
 
@@ -307,7 +305,7 @@ void Game::game_loop()
             m_dealer_hand = new Hand(m_game_deck, 2);
         }
 
-        place_bet();
+        while (!place_bet());
         play_blackjack();
         num_games++;
 
@@ -317,20 +315,23 @@ void Game::game_loop()
     while(game_continue == "y");
 }
 
-void Game::place_bet()
+bool Game::place_bet()
 {
     std::cout << "How much money do you want to bet?" << std::endl;
     std::cout << "Current Balance:   $" << m_players_childrens_college_fund << std::endl;
     std::cin >> m_player_bet;
 
+    // fix this by inputting into string, and try catch std::stoi()
+
 
     if (m_player_bet > m_players_childrens_college_fund)
     {
         std::cout << "You don't have the funds to place that bet" << std::endl;
-        place_bet();
+        return false;
     }
 
     m_players_childrens_college_fund-=m_player_bet;
+    return true;
 }
 
 void Game::payout(bool blackjack, bool draw)
@@ -338,13 +339,13 @@ void Game::payout(bool blackjack, bool draw)
     if ( draw )
     {
         m_players_childrens_college_fund+= m_player_bet;
-        return void();
+        return;
     }
 
     if ( blackjack )
     {
         m_players_childrens_college_fund+= (m_player_bet * 2.5);
-        return void();
+        return;
     }
 
     m_players_childrens_college_fund+= (m_player_bet * 2);

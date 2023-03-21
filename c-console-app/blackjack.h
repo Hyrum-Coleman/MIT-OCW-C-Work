@@ -66,7 +66,7 @@ public:
     void play_blackjack();
     void game_loop();
     void print_deck() const;
-    void place_bet();
+    bool place_bet();
     void payout(bool blackjack, bool draw);
     
 private:
