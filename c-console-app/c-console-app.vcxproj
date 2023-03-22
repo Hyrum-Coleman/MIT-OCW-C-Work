@@ -140,8 +140,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="arrayOperations.cpp" />
-    <ClCompile Include="blackjack.cpp" />
+    <ClCompile Include="card.cpp" />
+    <ClCompile Include="deck.cpp" />
+    <ClCompile Include="game.cpp" />
     <ClCompile Include="geometry.cpp" />
+    <ClCompile Include="hand.cpp" />
     <ClCompile Include="HW4_main.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="computePi.cpp" />
@@ -152,10 +155,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arrayOperations.h" />
-    <ClInclude Include="blackjack.h" />
+    <ClInclude Include="deck.h" />
+    <ClInclude Include="game.h" />
+    <ClInclude Include="card.h" />
     <ClInclude Include="computePi.h" />
     <ClInclude Include="factorialGoneWrong.h" />
     <ClInclude Include="geometry.h" />
+    <ClInclude Include="hand.h" />
     <ClInclude Include="HW4_min.h" />
     <ClInclude Include="HW7.h" />
     <ClInclude Include="statGen.h" />

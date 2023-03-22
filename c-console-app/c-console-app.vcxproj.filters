@@ -60,7 +60,16 @@
     <ClCompile Include="HW4_main.cpp">
       <Filter>Source Files\HW4</Filter>
     </ClCompile>
-    <ClCompile Include="blackjack.cpp">
+    <ClCompile Include="game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="card.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="deck.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="hand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -89,7 +98,16 @@
     <ClInclude Include="geometry.h">
       <Filter>Header Files\HW3</Filter>
     </ClInclude>
-    <ClInclude Include="blackjack.h">
+    <ClInclude Include="game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="card.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="deck.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="hand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
