@@ -14,6 +14,7 @@ public: // public methods
 	void shuffle();
 	void print_deck() const;
 	Card get_next_card();
+    void populate_deck_and_shuffle();
 
 protected:
 	std::vector<Card> m_card_array;

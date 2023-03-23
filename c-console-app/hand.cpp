@@ -1,5 +1,6 @@
 #include "hand.h"
 
+#include <iostream>
 
 /*
 
@@ -17,6 +18,11 @@ void Hand::draw(int hand_size)
 {
     for (int i = 0; i < hand_size; i++)
     {
+        if(m_deck->get_num_cards() == 0)
+        {
+            m_deck->populate_deck_and_shuffle();
+        }
+
         m_hand_array.push_back(m_deck->get_next_card());
     }
 }

@@ -13,13 +13,20 @@ Deck Class
 
 Deck::Deck()
 {
-	for (int i = 0; i < 13; i++)
-	{
-		m_card_array.emplace_back((i + 2), "Clubs");
-		m_card_array.emplace_back((i + 2), "Diamonds");
-		m_card_array.emplace_back((i + 2), "Spades");
-		m_card_array.emplace_back((i + 2), "Hearts");
-	}
+    populate_deck_and_shuffle();
+}
+
+void Deck::populate_deck_and_shuffle() {
+
+    for (int i = 0; i < 13; i++)
+    {
+        m_card_array.emplace_back((i + 2), "Clubs");
+        m_card_array.emplace_back((i + 2), "Diamonds");
+        m_card_array.emplace_back((i + 2), "Spades");
+        m_card_array.emplace_back((i + 2), "Hearts");
+    }
+
+    shuffle();
 }
 
 void Deck::shuffle()
@@ -41,3 +48,5 @@ Card Deck::get_next_card() {
 	m_card_array.pop_back();
 	return ret_val;
 }
+
+
