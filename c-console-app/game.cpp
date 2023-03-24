@@ -136,7 +136,8 @@ void Game::double_down()
     m_player_hand->print_hand();
 }
 
-void Game::hit(std::string& player_choice) {
+void Game::hit(std::string& player_choice) const
+{
 
     while (player_choice == "h")
     {
@@ -251,5 +252,3 @@ bool Game::get_continue_choice(std::string &continue_choice) {
             return false;
     }
 }
-
-
