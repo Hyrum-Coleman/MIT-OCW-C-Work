@@ -6,7 +6,7 @@
 
 Card Class
 
- */
+*/
 
 Card::Card(int card_val, std::string card_suit)
 {

@@ -48,5 +48,3 @@ Card Deck::get_next_card() {
 	m_card_array.pop_back();
 	return ret_val;
 }
-
-

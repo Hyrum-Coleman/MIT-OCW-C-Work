@@ -3,11 +3,12 @@
 #include <algorithm>
 #include <iostream>
 
+
 /*
 
  Game class
 
- */
+*/
 
 Game::Game()
 {
@@ -82,6 +83,7 @@ bool Game::place_bet()
 {
     std::string input_string;
 
+
     std::cout << "How much money do you want to bet?" << std::endl;
     std::cout << "Current Balance:   $" << m_players_childrens_college_fund << std::endl;
     std::cout << "  > ";
@@ -138,7 +140,7 @@ void Game::double_down()
 
 void Game::hit(std::string& player_choice) {
 
-    while (player_choice == "h")
+    while (player_choice[0] == 'h')
     {
 
         m_player_hand->draw(1);
@@ -157,7 +159,7 @@ void Game::stand() {
     if (m_player_hand->sum_hand() > 21)
     {
         std::cout << "The player busts" << std::endl;
-        m_player_score = -1;
+        m_player_score  = -1;
         return;
     }
     m_player_score = m_player_hand->sum_hand();
