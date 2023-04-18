@@ -15,13 +15,13 @@ public:
     bool place_bet();
     void payout();
     void double_down();
-    void hit(std::string& player_choice);
+    void hit(std::string& player_choice) const;
     void stand();
     void handle_dealer();
     void determine_winner();
-    bool get_initial_choice(std::string& player_choice);
-    bool get_hit_choice(std::string& player_choice);
-    bool get_continue_choice(std::string& continue_choice);
+    static bool get_initial_choice(std::string& player_choice);
+    static bool get_hit_choice(std::string& player_choice);
+    static bool get_continue_choice(std::string& continue_choice);
     
 private:
     Deck *m_game_deck;
